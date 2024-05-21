@@ -1,0 +1,56 @@
+@import '../../common-styles/variables.scss';
+
+.primary_btn{
+    padding: 6px 28px;
+    background-color: $theme-default;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Montserrat-Regular';
+    color: $White;
+    transition: .3s;
+
+    &:hover{
+        background-color: transparent;
+        color: $theme-default;
+        border: 1px solid $theme-default;
+    }
+}
+
+.border_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 28px;
+    border: 2px solid #E6E9EB;
+    color: #E6E9EB;
+    background-color: transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Montserrat-Regular';
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover{
+        color: $heading-color !important;
+        background-color: #E6E9EB !important;
+        border: 2px solid transparent;
+    }
+}
+
+.logout_btn{
+    padding: 6px 28px;
+    border: 1px solid $theme-default;
+    background-color: transparent;
+    border-radius: 50px;
+    font-size: $font-size-14;
+    font-family: $font-family-Montserrat-Regular;
+    color: $White-60;
+    transition: .3s;
+
+    &:hover{
+        background-color: $theme-default;
+        color: $White;
+        border: 1px solid transparent;
+    }
+}

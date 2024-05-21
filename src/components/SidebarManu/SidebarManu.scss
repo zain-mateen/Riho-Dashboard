@@ -1,0 +1,1174 @@
+@import '../../common-styles/variables.scss';
+
+.sidebar_main{
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    height: 100%;
+    line-height: inherit;
+    background: $dark-default;
+    width: 265px;
+    text-align: left;
+    transition: 0.3s;
+    box-shadow: 0 0 21px 0 rgba(89, 102, 122, 0.1);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 25px 20px 6px 20px;
+    max-width: 100%;
+
+    @media only screen and (max-width: 991.98px) {
+        left: -270px;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .sidebar_container{
+
+        .logo_main{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top-right-radius: 15px;
+            padding: 0 10px 22px;
+
+            @media only screen and (max-width: 575.98px) {
+                padding: 0 0 20px 0;
+            }
+
+            .logo_otr{
+                width: 166px;
+                height: 36px;
+
+                .logo{
+                    max-width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .icon_otr{
+
+                @media only screen and (max-width: 991.98px) {
+                    display: none;
+                }
+
+                svg{
+                    stroke: $White !important;
+                }
+            }
+
+            .close_menu_icon_otr{
+                display: none;
+                cursor: pointer;
+                transition: .3s;
+
+                @media only screen and (max-width: 991.98px) {
+                    display: block;
+                }
+
+                &:hover{
+
+                    .close_icon{
+                        color: $danger-color;
+                    }
+                }
+
+                svg{
+                    color: $White;
+                    transition: .3s;
+
+                    @media only screen and (max-width: 575.98px) {
+                        width: 20px;
+                    }
+                }
+            }
+        }
+        
+        .sidebar_menu_ul{
+
+            .sidebar_menu_li{
+                padding-top: 22px;
+                border-top: 2px solid $White-10;
+                
+                &:not(:last-child){
+                    padding-bottom: 6px;
+                    border-bottom: 2px solid $White-10;
+                }
+
+                .sidebar_menu_title{
+                    color: $White;
+                    text-transform: uppercase;
+                    margin-bottom: 8px;
+                }
+                
+                .menu_link_ul{
+
+                    .menu_link_li{
+
+                        .menu_linkk{
+                            display: flex;
+                            align-items: center;
+                            gap: 0 10px;
+                            display: flex;
+                            padding: 11px 13px;
+                            background-color: transparent;
+                            border-radius: 12px;
+                            position: relative;
+                            transition: .3s;
+
+                            &:hover{
+                                background-color: $White-20;
+    
+                                .pin_icon_otr{
+                                    visibility: visible;
+                                    opacity: 1;
+                                }
+
+                                svg{
+                                    color: $White;
+                                }
+    
+                                .text{
+                                    color: $White;
+                                }
+                            }
+
+                            .pin_icon_otr{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 22px;
+                                height: 22px;
+                                background-color: $theme-default;
+                                border: 1px solid $White-60;
+                                border-radius: 100%;
+                                position: absolute;
+                                right: 16px;
+                                top: -8px;
+                                z-index: 2;
+                                visibility: hidden;
+                                opacity: 0;
+                                transition: .3s;
+
+    
+                                svg{
+                                    font-size: 11px;
+                                    color: $White;
+                                }
+                            }
+    
+                            svg{
+                                color: $White-60;
+                                transition: .3s;
+                            }
+    
+                            .text{
+                                letter-spacing: 0.7px;
+                                text-transform: capitalize;
+                                color: $White-60;
+                                transition: .3s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sidebar_main.showSidebar{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.header{
+    margin-left: 265px;
+    width: calc(100% - 265px);
+
+    @media only screen and (max-width: 991.98px) {
+        margin: 0;
+        width: 100%;
+    }
+
+    .header_container{
+
+        .header_wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 13px 30px;
+            position: relative;
+
+            @media only screen and (max-width: 1400px) {
+                padding: 14px 20px;
+            }
+
+            @media only screen and (max-width: 991.98px) {
+                padding: 12px 30px;
+            }
+
+            @media only screen and (max-width: 575.98px) {
+                padding: 12px 15px !important;
+            }
+
+            &::before{
+                position: absolute;
+                content: "";
+                bottom: 0%;
+                height: 1px;
+                z-index: 8;
+                width: calc(100% - 40px);
+                background: $White-10;
+            }
+
+            .header_content{
+
+                @media only screen and (max-width: 991.98px) {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .toggle_sidebar{
+                    position: unset;
+                    margin-right: 15px;
+                    border-right: 1px solid #ddd;
+                    padding-right: 15px;
+                    display: none;
+                    cursor: pointer;
+
+                    @media only screen and (max-width: 991.98px) {
+                        display: block;
+                    }
+                    
+                    @media only screen and (max-width: 575.98px) {
+                        margin: 0;
+                        padding: 0;
+                        border-right: none;
+                    }
+
+                    svg{
+                        width: 20px;
+                        height: 20px;
+                        stroke: #898989 !important;
+                    }
+                }
+
+                .heading_otr{
+                    display: flex;
+                    align-items: center;
+                    gap: 0 10px;
+
+                    @media screen and (max-width: 767.98px) {
+                        display: none;
+                    }
+
+                    .heading{
+                        color: $White;
+                    }
+
+                    .hand_icon_otr{
+                        
+                        .hand_icon{
+                            height: 26px;
+                        }
+                    }
+                }
+
+                .desc{
+                    color: $White;
+
+                    @media screen and (max-width: 1200px) {
+                        display: none;
+                    }
+                }
+            }
+
+            .nav_right{
+
+                .nav_menu_ul{
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    .nav_menu_li{
+
+                        .form{
+                            display: flex;
+                            align-items: center;
+                            width: 250px;
+                            height: 40px;
+                            background-color: $dark-default;
+                            padding: 4px 10px;
+                            border-radius: 10px;
+
+                            @media screen and (max-width: 767.98px) {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 36px;
+                                height: 36px;
+                                border: none;
+                                border-radius: 100%;
+                            }
+
+                            .search_icon_otr{
+                                padding-right: 10px;
+                                position: relative;
+
+                                @media screen and (max-width: 767.98px) {
+                                    padding: 0;
+                                }
+
+                                &::before{
+                                    content: "";
+                                    top: 50%;
+                                    left: 34px;
+                                    transform: translateY(-50%);
+                                    height: 25px;
+                                    width: 1px;
+                                    background-color: $White-30;
+                                    position: absolute;
+
+                                    @media screen and (max-width: 767.98px) {
+                                        display: none;
+                                    }
+                                }
+
+                                svg{
+                                    color: $White-30;
+
+                                    @media screen and (max-width: 1366px) {
+                                        font-size: 20px;
+                                    }
+                                }
+                            }
+
+                            .input_otr{
+                                padding-left: 10px;
+
+                                @media screen and (max-width: 1366px) {
+                                    padding-left: 24px;
+                                }
+
+                                @media screen and (max-width: 767.98px) {
+                                    display: none;
+                                }
+
+                                .input{
+                                    border: none;
+                                    outline: none;
+                                    font-size: 14px;
+                                    line-height: 28px;
+                                    font-family: 'Montserrat-Regular';
+                                    color: $White-60;
+                                    background: transparent;
+
+                                    &::placeholder{
+                                        color: $White-60;
+                                    }
+                                }
+                            }
+                        }
+
+                        .star_dropdown_otr{
+                            position: relative;
+                            transition: .3s;
+
+                            &:hover{
+                                
+                                .star_dropdown_card{
+                                    top: 50px;
+                                    visibility: visible;
+                                    opacity: 1;
+                                }
+                            }
+
+                            .star_icon_otr{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 48px;
+                                height: 48px;
+                                background-color: $dark-default;
+                                border-radius: 100%;
+                                cursor: pointer;
+
+                                @media screen and (max-width: 1366px) {
+                                    width: 36px;
+                                    height: 36px;
+                                }
+
+                                svg{
+                                    color: $White-30;
+                                    
+                                    @media screen and (max-width: 1366px) {
+                                        width: 20px;
+                                    }
+                                }
+                            }
+
+                            .star_dropdown_card{
+                                position: absolute;
+                                top: 150px;
+                                right: 0;
+                                width: 300px;
+                                background-color: $bg-color;
+                                box-shadow: 0 0 20px rgba(89, 102, 122, 0.1);
+                                border-radius: 5px;
+                                z-index: 9;
+                                visibility: hidden;
+                                opacity: 0;
+                                transition: .3s;
+
+                                @media only screen and (max-width: 576px) {
+                                    position: fixed;
+                                    top: 60px;
+                                    right: 1px;
+                                }
+
+                                .card_header{    
+                                    padding: 20px;
+                                    text-align: center;
+                                    border-bottom: 1px solid rgba(145, 142, 153, 0.3);
+
+                                    .heading{
+                                        text-transform: capitalize;
+                                        color: $White;
+                                    }
+                                }
+
+                                .card_body{
+                                    padding: 35px 20px 20px 20px;
+
+                                    .star_list{
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        gap: 0 16px;
+
+                                        .star_item{
+
+                                            .star_linkk{
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                width: 52px;
+                                                height: 52px;
+                                                background-color: $dark-default;
+                                                border-radius: 100%;
+
+                                                svg{
+                                                    stroke: $White-30;
+                                                    fill: $White-30;
+                                                }
+                                            }
+
+                                            .text{
+                                                margin-top: 4px;
+                                                text-align: center;
+                                                text-transform: capitalize;
+                                                color: $White-70;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .card_footer{    
+                                    padding: 20px;
+                                    text-align: center;
+
+                                    .text{
+                                        color: $theme-default;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        .notification_dropdown_otr{
+                            position: relative;
+
+                            &:hover{
+
+                                .notification_dropdown{
+                                    top: 50px;
+                                    visibility: visible;
+                                    opacity: 1;
+                                }
+                            }
+
+                            .notification_icon_otr{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 48px;
+                                height: 48px;
+                                background-color: $dark-default;
+                                border-radius: 100%;
+                                position: relative;
+                                cursor: pointer;
+
+                                @media screen and (max-width: 1366px) {
+                                    width: 36px;
+                                    height: 36px;
+                                }
+
+                                svg{
+                                    font-size: 24px;
+                                    color: $White-30;
+                                    animation: swing 1.5s ease infinite;
+
+                                    @media screen and (max-width: 1366px) {
+                                        width: 20px;
+                                    }
+                                }
+
+                                .notification_count{
+                                    position: absolute;
+                                    top: 8px;
+                                    right: 10px;
+                                    width: 15px;
+                                    height: 15px;
+                                    background-color: $danger-color;
+                                    border-radius: 100%;
+
+                                    @media screen and (max-width: 1366px) {
+                                        width: 12px;
+                                        height: 12px;
+                                    }
+
+                                    .notification_count_number{
+                                        font-size: 11px;
+                                        font-family: 'Montserrat-Bold';
+                                        color: $White;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+
+                                        @media screen and (max-width: 1366px) {
+                                            font-size: 8px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .notification_dropdown{
+                                width: 330px;
+                                top: 100px;
+                                right: 0;
+                                left: unset;
+                                position: absolute;
+                                z-index: 9;
+                                background-color: $bg-color;
+                                border: 1px solid $White-10;
+                                border-radius: 5px;
+                                box-shadow: 0 0 14px #1A1C23;
+                                visibility: hidden;
+                                opacity: 0;
+                                transition: .3s;
+
+                                @media only screen and (max-width: 576px) {
+                                    width: calc(100vw - 30px);
+                                    position: fixed;
+                                    top: 60px;
+                                    left: 15px !important;
+                                }
+
+                                .notification_dropdown_card{
+
+                                    .card_header{
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        padding: 20px 20px 20px 20px;
+                                        border-bottom: 1px solid $White-10;
+
+                                        .heading{
+                                            color: $White;
+                                        }
+
+                                        .text{
+                                            color: $White-70;
+                                        }
+                                    }
+
+                                    .card_body{
+                                        padding: 20px;
+                                    }
+
+                                    .card_footer{
+                                        padding: 0 20px 20px 20px;
+
+                                        .action_otr{
+                                            display: flex;
+                                            justify-content: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .profile_dropdown_otr{
+                            position: relative;
+
+                            &:hover{
+
+                                .profile_dropdown_ul{
+                                    top: 54px;
+                                    visibility: visible;
+                                    opacity: 1;
+                                }
+                            }
+
+                            .profile_main{
+                                display: flex;
+                                align-items: center;
+                                border-left: 2px solid $White-10;
+                                padding: 6px 10px;
+                                cursor: pointer;
+
+                                @media screen and (max-width: 1200px) {
+                                    border: none;
+                                    padding: 0;
+                                }
+
+                                .profile_otr{
+                                    width: 41px;
+                                    height: 41px;
+                                    border-radius: 100%;
+                                    overflow: hidden;
+
+                                    @media screen and (max-width: 1366px) {
+                                        width: 34px;
+                                        height: 34px;
+                                    }
+
+                                    .profile{
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    }
+                                }
+
+                                .profile_content{
+                                    margin-left: 16px;
+
+                                    @media screen and (max-width: 1400px) {
+                                        display: none;
+                                    }
+
+                                    .profile_content_heading{
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0 4px;
+
+                                        .heading{
+                                            color: $White;
+                                        }
+
+                                        .arrow{
+                                            font-size: 14px;
+                                            color: $White;
+                                        }
+                                    }
+
+                                    .text{
+                                        color: $White-60;
+                                    }
+                                }
+                            }
+
+                            .profile_dropdown_ul{
+                                width: 160px;
+                                top: 70px;
+                                left: -12px;
+                                padding: 0 10px;
+                                position: absolute;
+                                background-color: $bg-color;
+                                z-index: 9;
+                                border-radius: 5px;
+                                box-shadow: 0 0 20px rgba(89, 102, 122, 0.1);
+                                visibility: hidden;
+                                opacity: 0;
+                                transition: .3s;
+
+                                @media only screen and (max-width: 1400px) {
+                                    right: 0;
+                                    left: auto;
+                                }
+
+                                @media only screen and (max-width: 576px) {
+                                    width: calc(100vw - 30px);
+                                    right: 1px;
+                                    position: fixed;
+                                }
+
+                                .profile_dropdown_li{
+                                    padding: 10px !important;
+                                    border-bottom: 1px solid $White-10;
+
+                                    .profile_dropdown_a{
+                                        transition: .3s;
+
+                                        &:hover{
+
+                                            svg{
+                                                color: $theme-default !important;
+                                            }
+
+                                            .profile_dropdown_a_span{
+                                                color: $theme-default;
+                                            }
+                                        }
+
+                                        svg{
+                                            margin-right: 10px;
+                                            color: $White-30;
+                                            transition: .3s;
+                                        }
+
+                                        .profile_dropdown_a_span{
+                                            color: $White;
+                                            transition: .3s;
+                                        }
+                                    }
+                                }
+
+                                .action_otr{
+                                    display: flex;
+                                    justify-content: center;
+                                    padding: 10px !important;
+
+                                    @media only screen and (max-width: 576px) {
+                                        justify-content: left;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding: 0px !important;
+    align-items: center;
+    border: none;
+
+    .nav-item{
+
+        .nav-link{
+            background-color: transparent;
+            color: $theme-default;
+            letter-spacing: .3px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: $font-size-14;
+            font-family: $font-family-Montserrat-Regular;
+            border: none;
+            transition: .3s;
+
+            &:hover{
+                background-color: $theme-default;
+                color: $White;
+            }
+        }
+
+        .active{
+            background-color: $theme-default;
+            color: $White;
+        }
+    }
+}
+
+.tab-content{
+
+    .tab-pane{
+
+        .user_message{
+
+            .cart_dropdown_otr{
+
+                .cart_dropdown_ul{
+
+                    .cart_dropdown_li{
+                        padding: 19px 0px !important;
+                        border-bottom: 1px solid $White-10;
+
+                        .media{
+                            display: flex;
+                            align-items: center;
+                            position: relative;
+
+                            .img_otr{
+                                width: 60px;
+                                border-radius: 5px;
+                                overflow: hidden;
+                                margin-right: 16px;
+
+                                .img{
+                                    width: 100%;
+                                    height: auto;
+                                }
+                            }
+
+                            .media_body{
+                                margin-right: 20px;
+
+                                .heading{
+                                    color: $White;
+                                }
+
+                                .qty_box{
+                                    margin: 6px 0;
+
+                                    .input_group{
+                                        position: relative;
+                                        display: flex;
+                                        flex-wrap: wrap;
+                                        align-items: center;
+                                        width: 80px;
+                                        justify-content: space-between;
+
+                                        .input_group_prepend{
+
+                                            button{
+                                                width: 24px;
+                                                height: 24px;
+                                                padding: 0px 7px;
+                                                background-color: #000 !important;
+                                                border: none;
+                                                border-radius: 100%;
+                                                font-size: 16px;
+                                                font-family: 'Montserrat-SemiBold';
+                                                color: $text-color;
+                                            }
+                                        }
+                                        
+                                        input{
+                                            background-color: transparent;
+                                            color: $text-color;
+                                            width: 20px;
+                                            padding: 0;
+                                            text-align: center;
+                                            border: none;
+                                            height: 24px;
+                                            font-size: 12px;
+                                            font-family: 'Montserrat-SemiBold';
+                                            border: none;
+                                            outline: none;
+
+                                            &:focus{
+                                                border: none;
+                                                outline: none;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .price_text{
+                                    font-size: 15px;
+                                    font-family: 'Montserrat-SemiBold';
+                                    color: $theme-default;
+                                    text-align: center;
+                                }
+                            }
+
+                            .close_circle_otr{
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+
+                                .close_circle_inr{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 20px;
+                                    height: 20px;
+                                    background-color: $danger-color;
+                                    border-radius: 100%;
+                                    cursor: pointer;
+
+                                    svg{
+                                        font-size: 16px;
+                                        color: $dark-default;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .messages_ul{
+
+                .messages_li{
+                    padding: 19px 0px !important;
+                    border-bottom: 1px solid $White-10;
+
+                    .user_alerts{
+                        display: flex;
+                        align-items: center;
+
+                        .img_otr{
+                            width: 34px;
+                            height: 34px;
+                            border-radius: 100%;
+                            overflow: hidden;
+                            cursor: pointer;
+                            margin-right: 8px;
+
+                            .img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+
+                        .content_otr{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: calc(100% - 42px);
+
+                            .content{
+
+                                .heading{
+                                    color: $White;
+                                }
+
+                                .text{
+                                    color: $text-color;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    display: -webkit-box !important;
+                                    -webkit-line-clamp: 1;
+                                    -webkit-box-orient: vertical;
+                                    white-space: normal;
+                                    text-align: -webkit-auto;
+                                }
+                            }
+
+                            .icon_otr{
+                                cursor: pointer;
+
+                                .icon{
+                                    font-size: 24px;
+                                    color: $heading-color;
+                                    transition: .3s;
+
+                                    &:hover{
+                                        color: $dark-default;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .notification_card{
+
+            .notification_card_ul{
+
+                .notification_card_li{
+                    border-bottom: 1px solid $White-10;
+                    padding-bottom: 15px;
+                    padding-top: 15px;
+
+                    .notification_card_div{
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        width: 100%;
+
+                        .img_otr{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 100%;
+                            overflow: hidden;
+
+                            .img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+
+                        .content{
+                            width: calc(100% - 100px);
+                            flex-grow: 1;
+
+                            .heading{
+                                color: $White;
+                            }
+
+                            .text{
+                                color: $text-color;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                display: -webkit-box !important;
+                                -webkit-line-clamp: 1;
+                                -webkit-box-orient: vertical;
+                                white-space: normal;
+                                text-align: -webkit-auto;
+                            }
+                        }
+
+                        .time_text{
+                            color: $text-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .cart_dropdown_otr{
+
+            .cart_dropdown_ul{
+
+                .cart_dropdown_li{
+                    padding: 19px 0px !important;
+                    border-bottom: 1px solid $White-10;
+
+                    .media{
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+
+                        .img_otr{
+                            width: 60px;
+                            border-radius: 5px;
+                            overflow: hidden;
+                            margin-right: 16px;
+
+                            .img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+
+                        .media_body{
+                            margin-right: 20px;
+
+                            .heading{
+                                color: $White;
+                            }
+
+                            .qty_box{
+                                margin: 6px 0;
+
+                                .input_group{
+                                    position: relative;
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    align-items: center;
+                                    width: 80px;
+                                    justify-content: space-between;
+
+                                    .input_group_prepend{
+
+                                        button{
+                                            width: 24px;
+                                            height: 24px;
+                                            padding: 0px 7px;
+                                            background-color: #000 !important;
+                                            border: none;
+                                            border-radius: 100%;
+                                            font-size: 16px;
+                                            font-family: 'Montserrat-SemiBold';
+                                            color: $text-color;
+                                        }
+                                    }
+                                    
+                                    input{
+                                        background-color: transparent;
+                                        color: $text-color;
+                                        width: 20px;
+                                        padding: 0;
+                                        text-align: center;
+                                        border: none;
+                                        height: 24px;
+                                        font-size: 12px;
+                                        font-family: 'Montserrat-SemiBold';
+                                        border: none;
+                                        outline: none;
+
+                                        &:focus{
+                                            border: none;
+                                            outline: none;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .price_text{
+                                font-size: 15px;
+                                font-family: 'Montserrat-SemiBold';
+                                color: $theme-default;
+                            }
+                        }
+
+                        .close_circle_otr{
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+
+                            .close_circle_inr{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 20px;
+                                height: 20px;
+                                background-color: $danger-color;
+                                border-radius: 100%;
+                                cursor: pointer;
+
+                                svg{
+                                    color: $dark-default;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .total_main{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 16px 0;
+                    border-bottom: 1px solid $White-10;
+
+                    .total_text{
+                        color: $White;
+                    }
+
+                    .total_price{
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .card_footer{
+        padding: 20px 20px 0 20px;
+
+        .action_otr{
+            display: flex;
+            justify-content: center;
+
+            .check_btn{
+
+            }
+        }
+    }
+}
